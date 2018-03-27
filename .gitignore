@@ -3,3 +3,20 @@
 ################################################################################
 
 /code/.vs
+/code/packages
+/code/Src/Application/Api/bin
+/code/Src/Application/Api/obj
+/code/Src/Application/Model/bin
+/code/Src/Application/Model/obj
+/code/Src/DomainService/Core/bin
+/code/Src/DomainService/Core/obj
+/code/Src/DomainService/Model/bin
+/code/Src/DomainService/Model/obj
+/code/Src/Host/Host/bin
+/code/Src/Host/Host/obj/Debug
+/code/Src/Host/Model/bin/Debug
+/code/Src/Host/Model/obj/Debug
+/code/Src/Interface/Core/bin
+/code/Src/Interface/Core/obj
+/code/Src/Base/bin/Debug
+/code/Src/Base/obj/Debug
