@@ -1,6 +1,6 @@
-﻿namespace Eagles.Application.Model
+﻿namespace Eagles.Application.Model.Test
 {
-    public class TestModel
+    public class TestResponse: ResponseBase
     {
         public string Id { get; set; }
 

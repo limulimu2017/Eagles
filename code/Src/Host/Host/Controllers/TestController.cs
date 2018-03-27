@@ -1,32 +1,23 @@
-﻿using Eagles.Application.Model;
-using System.Web.Http;
-using Eagles.Interface.Core;
+﻿using System.Web.Http;
+using Eagles.Application.Model.Test;
+using Eagles.Interface.Core.Test;
 
 namespace Eagles.Host.Controllers
 {
     public class TestController : ApiController
     {
-        private readonly ITestIOC testIoc;
+        private ITestHandler testHandler;
 
-        private readonly ITestIOC2 testIoc2;
-
-        public TestController(ITestIOC testIoc, ITestIOC2 testIoc2)
+        public TestController(ITestHandler testHandler)
         {
-            this.testIoc = testIoc;
-            this.testIoc2 = testIoc2;
+            this.testHandler = testHandler;
         }
 
         [Route("api/test")]
         [HttpGet]
-        public TestModel Demo()
+        public TestResponse Demo(TestRequest request)
         {
-            var s = testIoc.Test("id");
-            var name=testIoc2.Get();
-            return new TestModel()
-            {
-                Id = s,
-                Name = name
-            };
+            return testHandler.Porcess(request);
         }
     }
 }
