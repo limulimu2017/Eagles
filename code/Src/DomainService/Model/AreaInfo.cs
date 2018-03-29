@@ -1,12 +1,5 @@
-﻿using System.Collections.Generic;
-
-namespace Eagles.Application.Model.Test
+﻿namespace Eagles.DomainService.Model
 {
-    public class TestResponse: ResponseBase
-    {
-        public List<AreaInfo> AreaInfo { get; set; }
-    }
-
     public class AreaInfo
     {
         /// <summary>
@@ -19,5 +12,6 @@ namespace Eagles.Application.Model.Test
         /// area name 
         /// </summary>
         public string AreaName { get; set; }
+
     }
 }

@@ -32,6 +32,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Eagles.Host.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -54,8 +55,17 @@
       <HintPath>..\..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Swagger.Net, Version=0.5.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Swagger.Net.0.5.5\lib\net40\Swagger.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="Swashbuckle.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cd1bb07a5ac7c7bc, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Swashbuckle.Core.5.6.0\lib\net40\Swashbuckle.Core.dll</HintPath>
     </Reference>
     <Reference Include="System.IO.Compression.FileSystem" />
     <Reference Include="System.Net.Http" />
@@ -86,12 +96,34 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
+    <Reference Include="WebActivator, Version=1.5.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\WebActivator.1.5.1\lib\net40\WebActivator.dll</HintPath>
+    </Reference>
+    <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\WebActivatorEx.2.0\lib\net40\WebActivatorEx.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="SwaggerUI\css\screen.css" />
+    <Content Include="SwaggerUI\images\pet_store_api.png" />
+    <Content Include="SwaggerUI\images\wordnik_api.png" />
+    <Content Include="SwaggerUI\index.html" />
+    <Content Include="SwaggerUI\lib\backbone-min.js" />
+    <Content Include="SwaggerUI\lib\handlebars.runtime-1.0.0.beta.6.js" />
+    <Content Include="SwaggerUI\lib\jquery.ba-bbq.min.js" />
+    <Content Include="SwaggerUI\lib\jquery.min.js" />
+    <Content Include="SwaggerUI\lib\jquery.slideto.min.js" />
+    <Content Include="SwaggerUI\lib\jquery.wiggle.min.js" />
+    <Content Include="SwaggerUI\lib\swagger.js" />
+    <Content Include="SwaggerUI\lib\underscore-min.js" />
+    <Content Include="SwaggerUI\swagger-ui.js" />
+    <Content Include="SwaggerUI\swagger-ui.min.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\SwaggerConfig.cs" />
+    <Compile Include="App_Start\SwaggerNet.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Global.asax.cs">
@@ -101,6 +133,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+    <Content Include="SwaggerUI\lib\.DS_Store" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -120,6 +153,14 @@
     <ProjectReference Include="..\..\DomainService\Model\Eagles.DomainService.Model.csproj">
       <Project>{5f6b0913-2209-42a6-874a-096d0e2b52fc}</Project>
       <Name>Eagles.DomainService.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Infrastructure\DataAccess\Eagles.Infrastructure.DataAccess.csproj">
+      <Project>{d730d59c-5778-49d5-893f-655c7ca5f290}</Project>
+      <Name>Eagles.Infrastructure.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Infrastructure\Model\Ealges.Infrastructure.DataBaseModel.csproj">
+      <Project>{1c97f109-9391-4e0f-b44d-a3c6e7326dbb}</Project>
+      <Name>Ealges.Infrastructure.DataBaseModel</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Interface\Core\Eagles.Interface.Core.csproj">
       <Project>{2a747e03-d095-4b54-ae55-976576a82886}</Project>

@@ -20,3 +20,14 @@
 /code/Src/Interface/Core/obj
 /code/Src/Base/bin/Debug
 /code/Src/Base/obj/Debug
+/code/Src/Base/bin/Release
+/code/Src/Base/obj/Release
+/code/Src/Host/Host/obj/Release
+/code/Src/Host/Model/obj/Release
+/code/Src/Host/Model/bin/Release
+/code/Src/Infrastructure/DataAccess/bin
+/code/Src/Infrastructure/DataAccess/obj
+/code/Src/Infrastructure/Model/bin
+/code/Src/Infrastructure/Model/obj
+/code/Src/Interface/DataAccess/bin
+/code/Src/Interface/DataAccess/obj

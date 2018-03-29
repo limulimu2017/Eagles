@@ -13,8 +13,13 @@ namespace Eagles.Host.Controllers
             this.testHandler = testHandler;
         }
 
+        /// <summary>
+        /// Demo
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
         [Route("api/test")]
-        [HttpGet]
+        [HttpPost]
         public TestResponse Demo(TestRequest request)
         {
             return testHandler.Porcess(request);

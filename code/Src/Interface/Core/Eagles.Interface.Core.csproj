@@ -41,8 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Test\ITestHandler.cs" />
-    <Compile Include="ITestIOC.cs" />
-    <Compile Include="ITestIOC2.cs" />
+    <Compile Include="ITestDemo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

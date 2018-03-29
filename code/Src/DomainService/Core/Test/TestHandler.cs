@@ -1,31 +1,42 @@
 ﻿using System;
+using System.Collections.Generic;
 using Eagles.Application.Model.Test;
-using Eagles.Interface.Core;
 using Eagles.Interface.Core.Test;
+using Eagles.Interface.Infrastructure.DataAccess;
+using DBModel= Ealges.Infrastructure.DataBaseModel.Model;
 
 namespace Eagles.DomainService.Core.Test
 {
     public class TestHandler: ITestHandler
     {
-        private readonly ITestIOC testIoc;
+        private readonly IAreaDataAccess areaData;
 
-        private readonly ITestIOC2 testIoc2;
-
-        public TestHandler(ITestIOC testIoc, ITestIOC2 testIoc2)
+        public TestHandler(IAreaDataAccess areaData)
         {
-            this.testIoc = testIoc;
-            this.testIoc2 = testIoc2;
+            this.areaData = areaData;
         }
 
         public TestResponse Porcess(TestRequest request)
         {
-            var s = testIoc.Test("id");
-            var name = testIoc2.Get();
-            return new TestResponse()
+            var areaInfo = areaData.GetAreas(request.Id);
+            var result = new TestResponse()
             {
-                Id = s,
-                Name = name,
-                DateTime = new DateTime()
+                AreaInfo = new List<AreaInfo>()
+                {
+                    
+                },
+                DateTime = DateTime.Now
+            };
+            areaInfo.ForEach(x=>result.AreaInfo.Add(ConvertAreaInfo(x)));
+            return result;
+        }
+
+        private AreaInfo ConvertAreaInfo(DBModel.Area areaInfo)
+        {
+            return new AreaInfo
+            {
+                AreaId = areaInfo.AreaId,
+                AreaName =areaInfo.AreaName
             };
         }
     }
