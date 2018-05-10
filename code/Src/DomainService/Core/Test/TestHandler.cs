@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Xml.Serialization;
 using Eagles.Application.Model.Test;
+using Eagles.Base.Configuration;
 using Eagles.Interface.Core.Test;
 using Eagles.Interface.Infrastructure.DataAccess;
 using DBModel= Ealges.Infrastructure.DataBaseModel.Model;
@@ -11,23 +13,28 @@ namespace Eagles.DomainService.Core.Test
     {
         private readonly IAreaDataAccess areaData;
 
-        public TestHandler(IAreaDataAccess areaData)
+        private readonly IConfigurationManager configurationManager;
+
+        public TestHandler(IAreaDataAccess areaData, IConfigurationManager configurationManager)
         {
             this.areaData = areaData;
+            this.configurationManager = configurationManager;
         }
 
         public TestResponse Porcess(TestRequest request)
         {
+            var s=configurationManager.GetConfiguration<TestConfig>();
             var areaInfo = areaData.GetAreas(request.Id);
             var result = new TestResponse()
             {
                 AreaInfo = new List<AreaInfo>()
                 {
-                    
+
                 },
-                DateTime = DateTime.Now
+                DateTime = DateTime.Now,
+                TestNode = s.TestNode
             };
-            areaInfo.ForEach(x=>result.AreaInfo.Add(ConvertAreaInfo(x)));
+            areaInfo.ForEach(x => result.AreaInfo.Add(ConvertAreaInfo(x)));
             return result;
         }
 
@@ -39,5 +46,12 @@ namespace Eagles.DomainService.Core.Test
                 AreaName =areaInfo.AreaName
             };
         }
+    }
+
+    [XmlRoot("Configuration")]
+    [XmlPath("/Configuration/Test.config")]
+    public class TestConfig
+    {
+        public string TestNode { get; set; }
     }
 }

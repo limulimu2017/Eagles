@@ -12,13 +12,14 @@ namespace Eagles.Infrastructure.DataAccess
         
         public List<Area> GetAreas(string id)
         {
-            using (var con = new System.Data.SqlClient.SqlConnection(connstr))
-            {
-                con.Open();
-                var a = con.Query<Area>("SELECT TOP 1000 [areaId] ,[areaName] FROM[jtly].[dbo].[areaInfo]  where areaId =@id ", new {id=id});
-                con.Close();
-                return a.ToList();
-            }
+            return  new List<Area>();
+            //using (var con = new System.Data.SqlClient.SqlConnection(connstr))
+            //{
+            //    con.Open();
+            //    var a = con.Query<Area>("SELECT TOP 1000 [areaId] ,[areaName] FROM[jtly].[dbo].[areaInfo]  where areaId =@id ", new {id=id});
+            //    con.Close();
+            //    return a.ToList();
+            //}
         }
     }
 }

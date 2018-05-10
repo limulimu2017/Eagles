@@ -134,6 +134,7 @@
   <ItemGroup>
     <Content Include="packages.config" />
     <Content Include="SwaggerUI\lib\.DS_Store" />
+    <Content Include="Configuration\Test.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
